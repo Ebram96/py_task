@@ -13,6 +13,7 @@ class Attendance:
         """
         Returns the attendance for an employee in a give date and for how long.
         """
+        emp = emp.upper()
         result = {"attended": False}
         attended = self.db.query_data(
             table="Attendance", employee=emp, day=day
@@ -56,6 +57,7 @@ class Attendance:
 
     def get_history(self, emp):
         """Return an attendance history of an employee in UTC time"""
+        emp = emp.upper()
         user_attendance_ids = [
             x[0] for x in self.db.query_data(table="Attendance", employee=emp)
         ]
