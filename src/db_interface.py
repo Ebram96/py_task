@@ -26,17 +26,13 @@ class Database:
 
         if columns:
             query_str += " WHERE"
-
             for i, (column, value) in enumerate(columns.items()):
                 if i:
                     query_str += " AND"
-
                 query_str += f" {column}='{value}'"
-
             query_str += ";"
-
+            
         self.cursor.execute(query_str)
-
         return self.cursor.fetchall()
 
     def close_connection(self):
